@@ -42,6 +42,7 @@ class Block:
         self.list_of_p_blocks_in_salary_block_by_xpath = "//*[@id='salary-selector-target'] /descendant::p"
         self.faq_block_by_xpath = "//*[@id='faq-selector']"
         self.list_of_div_blocks_in_faq_by_xpath = "//*[@id='faq_accordion'] //div[@class='card-header']/span"
+        self.continue_reading_faq_by_xpath = "//*[contains(text(), 'להמשך קריאה')]"
 
     # ----------------------------------------FORM AFTER CLICKING ON SYLLABUS METHODS--------------------------------------
     def form_after_clicking_on_syllabus(self):
@@ -133,3 +134,6 @@ class Block:
 
     def list_of_div_blocks_in_faq(self):
         return self.driver.find_elements(By.XPATH, self.list_of_div_blocks_in_faq_by_xpath)
+
+    def continue_reading_faq(self):
+        return self.driver.find_element(By.XPATH, self.continue_reading_faq_by_xpath)

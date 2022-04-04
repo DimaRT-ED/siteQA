@@ -205,6 +205,8 @@ class MaslulPageTest(unittest.TestCase):
     def checks_if_faq_block_is_presented_and_clicks_on_every_question_in_it(self, actions, maslul_page):
         try:
             if maslul_page.maslul_faq_block().is_displayed():
+                if maslul_page.continue_reading().is_displayed():
+                    maslul_page.continue_reading().click()
                 self.string_message("---FAQ Block is presented---\n")
                 for question in maslul_page.list_of_div_blocks_in_faq():
                     self.string_message(f"Clicked on question -> {question.text}\n")

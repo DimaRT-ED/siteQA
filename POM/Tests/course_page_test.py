@@ -180,6 +180,8 @@ class CoursePageTest(unittest.TestCase):
     def checks_if_faq_block_presented(self, actions, course_page):
         try:
             if course_page.faq_block().is_displayed():
+                if course_page.continue_reading_faq().is_displayed():
+                    actions.move_to_element(course_page.continue_reading_faq()).click().perform()
                 self.string_message("---FAQ Block is Presented---\n")
                 for question in course_page.list_of_div_blocks_in_faq():
                     self.string_message(f"---Clicked on question -> {question.text}---\n")

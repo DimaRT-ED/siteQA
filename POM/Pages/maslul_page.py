@@ -30,6 +30,7 @@ class MaslulPage(Block):
         # ---------------------------------FAQ BLOCK------------------------------------------
         self.maslul_faq_block_by_xpath = "//*[@id='faq-selectsor-target']"
         self.maslul_list_of_faq_by_xpath = "//*[@id='faq-selectsor-target'] /descendant::div[@class='card mb-1']"
+        self.continue_reading_by_xpath = "//*[contains(text(), 'להמשך קריאה')]"
 
     # -------------------------------------NAVIGATION BUTTONS METHODS--------------------------------
     def list_of_buttons_in_navigation(self):
@@ -82,3 +83,6 @@ class MaslulPage(Block):
 
     def maslul_list_of_faq(self):
         return self.driver.find_elements(By.XPATH, self.maslul_list_of_faq_by_xpath)
+
+    def continue_reading(self):
+        return self.driver.find_element(By.XPATH, self.continue_reading_by_xpath)

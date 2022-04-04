@@ -15,6 +15,7 @@
 #         line = str(striped_line[0])
 #         print(line)
 # file.close()
+import sys
 from datetime import datetime
 
 from POM.Tests.course_page_test import CoursePageTest
@@ -53,7 +54,7 @@ def write_errors_to_different_file():
 
 def set_driver():
     driver: WebDriver = webdriver.Chrome(executable_path=
-                                         'chromedriver.exe')
+                                         'drivers/chromedriver.exe')
     driver.maximize_window()
     driver.delete_all_cookies()
     driver.implicitly_wait(20)
@@ -64,14 +65,46 @@ def set_driver():
 
 if __name__ == '__main__':
     driver = set_driver()
+    running = True
+    while running:
+        # total arguments
+        n = len(sys.argv)
+        print("Total arguments passed:", n)
+        if n == 1:
+            test_home_page = HomePageTest(driver)
+            test_header = HeaderTest(driver)
+            test_maslulim = MaslulPageTest(driver)
+            test_courses = CoursePageTest(driver)
+            test_home_page.test_run_all()
+            test_header.test_header()
+            test_maslulim.test_run_maslulim()
+            test_courses.test_run_courses()
+            write_errors_to_different_file()
+            break
 
-    test_home_page = HomePageTest(driver)
-    test_header = HeaderTest(driver)
-    test_maslulim = MaslulPageTest(driver)
-    test_courses = CoursePageTest(driver)
+        # Arguments passed
+        print("\nName of Python script:", sys.argv[0])
 
-    test_home_page.test_run_all()
-    test_header.test_header()
-    test_maslulim.test_run_maslulim()
-    test_courses.test_run_courses()
-    write_errors_to_different_file()
+        print("\nArguments passed:", end=" ")
+        for i in range(1, n):
+            print(sys.argv[i], end=" ")
+            if i == 1:
+                test_home_page = HomePageTest(driver)
+                test_home_page.test_run_all()
+                write_errors_to_different_file()
+            if i == 2:
+                test_header = HeaderTest(driver)
+                test_header.test_header()
+                write_errors_to_different_file()
+            if i == 3:
+                test_maslulim = MaslulPageTest(driver)
+                test_maslulim.test_run_maslulim()
+                write_errors_to_different_file()
+            if i == 4:
+                test_courses = CoursePageTest(driver)
+                test_courses.test_run_courses()
+                write_errors_to_different_file()
+
+
+
+
