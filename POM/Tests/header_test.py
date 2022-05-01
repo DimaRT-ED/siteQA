@@ -888,7 +888,7 @@ class HeaderTest(unittest.TestCase):
             run = False
         self.string_message("@Outside Course 'Database Managemnt' function---\n")
 
-    # -------------------------------------------5 BUTTONS-------------------------------------------
+    # -------------------------------------------6 BUTTONS-------------------------------------------
 
     def go_to_page_courses_for_companies(self):
         self.string_message("@Inside 'Courses for Companies' function---\n")
@@ -940,6 +940,16 @@ class HeaderTest(unittest.TestCase):
         self.compare_title_pages(title, actual_page_title, button_name)
         self.string_message("@Outside 'Jobs' function---\n")
 
+    def go_to_renting_classes(self):
+        self.string_message("@Inside 'Renting Classes' function...\n")
+        header = Header(self.driver)
+        header.renting_classes().click()
+        title = header.get_title()
+        actual_page_title = "השכרת כיתות » Real Time College | השכרת כיתות מחשבים בתל אביב"
+        button_name = "Renting Classes"
+        self.compare_title_pages(title, actual_page_title, button_name)
+        self.string_message("@Outside 'Renting Classes' function---\n")
+
     # -------------------------------------------TEST-------------------------------------------
 
     def run_maslulim(self):
@@ -964,17 +974,18 @@ class HeaderTest(unittest.TestCase):
         self.course_image_processing()
         self.course_database_management()
 
-    def run_five_buttons(self):
+    def run_six_buttons(self):
         self.go_to_page_courses_for_companies()
         self.go_to_page_articles()
         self.go_to_page_about_us()
         self.go_to_page_declaration_of_accessibility()
         self.go_to_page_jobs()
+        self.go_to_renting_classes()
 
     def test_header(self):
         self.run_maslulim()
         self.run_courses()
-        self.run_five_buttons()
+        self.run_six_buttons()
         self.open_file_and_append_string_message()
 
 

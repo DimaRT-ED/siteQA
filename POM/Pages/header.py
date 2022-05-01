@@ -27,6 +27,7 @@ class Header:
         self.about_us_by_txt = "אודות"
         self.declaration_of_accessibility_by_txt = "הצהרת נגישות"
         self.jobs_by_txt = "דרושים"
+        self.renting_classes_by_txt = "השכרת כיתות"
         # ----------------------- MASLULIM --------------------------
         self.maslulim_categories_by_xpath = "//*[@id=\"primar-menu\"]/li[7]/ul/li"
         self.maslul_real_time_by_xpath = "//*[@id=\"RT\"]"
@@ -150,6 +151,9 @@ class Header:
 
     def jobs(self):
         return self.driver.find_element(By.LINK_TEXT, self.jobs_by_txt)
+
+    def renting_classes(self):
+        return self.driver.find_element(By.LINK_TEXT, self.renting_classes_by_txt)
 
     # -------------------- Methods For Maslulim ----------------------------
 
