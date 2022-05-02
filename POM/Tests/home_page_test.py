@@ -282,6 +282,10 @@ class HomePageTest(unittest.TestCase):
             "GIT (Version Control)": "קורס Version Control עם המומחים » Real Time Group",
             "Jenkins": "קורס Jenkins - למד לעבוד עם ג'נקינס בצורה הטובה ביותר! | Real Time Group",
             "JIRA": "קורס JIRA | בואו להתמקצע ולצבור ניסיון בכלי המוביל למעקב באגים",
+            "Web Foundations": "קורס Web Foundations להכיר את היסודות של בניית אתרים» Real Time College",
+            "HTML5": "קורס HTML | לימודי html5 עם המומחים של Real Time College",
+            "CSS3": "קורס CSS3 | ללמוד הצגה ועיצוב של דפי אינטרנט :Real Time Group",
+            "Selenium": "קורס Selenium - לימודי פיתוח אוטומציה | הקורס הכי מקיף ומעשי בארץ",
             "Networking": "קורס Networking | לימודי מעשי בתקשורת הנתונים » Real Time College"}
         keys_of_dict_of_titles = dict_of_titles.keys()
 
@@ -326,10 +330,12 @@ class HomePageTest(unittest.TestCase):
         run = True
         dict_of_titles = {
             "Python Language": "קורס פייתון - Python | לימוד שפת פייתון מומלץ למתחילים / מתקדם",
+            "GIT": "קורס Version Control עם המומחים » Real Time Group",
             "SQL": "קורס SQL למתחילים | ניהול בסיסי נתונים :Real Time Group",
             "Machine Learning Fundamentals": "קורס Machine Learning Fundamentals » Real Time College",
             "Scientific Python": "קורס Scientific Python במכללת Real Time College RTG",
             "Machine Learning With Python": "קורס Machine Learning with Python » Real Time College",
+            "Big Data and Cloud": "קורס Big Data & Cloud | היכולת לנתח את המידע ולהסיק ממנו מסקנות",
             "Deep Learning With Tensorflow": "קורס פיתוח Deep Learning with Tensorflow » Real Time College",
             "AWS": "קורס AWS | התמחות בכלי שירותי הענן של אמזון :Real Time Group"}
         keys_of_dict_of_titles = dict_of_titles.keys()

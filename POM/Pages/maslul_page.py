@@ -19,10 +19,10 @@ class MaslulPage(Block):
         # -----------------------------NAVIGATION BLOCK-----------------------------------------
         self.about_block_by_xpath = "//*[@id='about-collage-article']"
         self.structure_of_maslul_block_by_xpath = "//*[@id='single-courses']"
-        self.target_audience_and_prior_requirements_block_by_xpath = "//*[@id='target-audience']"
-        self.to_study_with_us_block_by_xpath = "//*[@id='study-with-us-selector-target']"
-        self.graduate_diploma_block_by_xpath = "//*[@id='certifiact-selector-target']"
-        self.questions_and_answers_block_by_xpath = "//*[@id='faq-selectsor-target']"
+        self.target_audience_and_prior_requirements_block_by_xpath = "//*[@id='review-videos']"
+        self.to_study_with_us_block_by_xpath = "//*[@id='faq-selector-target']"
+        self.graduate_diploma_block_by_xpath = "//*[@id='path-jobs']"
+        self.questions_and_answers_block_by_xpath = "//*[@id='articles-silde']"
 
         # -------------------------------DIPLOMA IMG--------------------------------------------
         self.diploma_image_by_xpath = "//*[@id=\"certifiact-selector-target\"] /descendant::img"
@@ -58,19 +58,19 @@ class MaslulPage(Block):
     def about_block(self):
         return self.driver.find_element(By.XPATH, self.about_block_by_xpath)
 
-    def structure_of_maslul_block(self):
+    def structure_of_course_block(self):
         return self.driver.find_element(By.XPATH, self.structure_of_maslul_block_by_xpath)
 
-    def target_audience_and_prior_requirements_block(self):
+    def opinions(self):
         return self.driver.find_element(By.XPATH, self.target_audience_and_prior_requirements_block_by_xpath)
 
-    def to_study_with_us_block(self):
+    def faq(self):
         return self.driver.find_element(By.XPATH, self.to_study_with_us_block_by_xpath)
 
-    def graduate_diploma_block(self):
+    def job_path(self):
         return self.driver.find_element(By.XPATH, self.graduate_diploma_block_by_xpath)
 
-    def questions_and_answers_block(self):
+    def articles(self):
         return self.driver.find_element(By.XPATH, self.questions_and_answers_block_by_xpath)
 
     # -------------------------------DIPLOMA IMG METHODS--------------------------------------------

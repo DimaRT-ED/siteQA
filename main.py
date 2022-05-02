@@ -75,10 +75,10 @@ if __name__ == '__main__':
             test_header = HeaderTest(driver)
             test_maslulim = MaslulPageTest(driver)
             test_courses = CoursePageTest(driver)
-            test_home_page.test_run_all()
-            test_header.test_header()
+            # test_home_page.test_run_all()
+            # test_header.test_header()
             test_maslulim.test_run_maslulim()
-            test_courses.test_run_courses()
+            # test_courses.test_run_courses()
             write_errors_to_different_file()
             break
 

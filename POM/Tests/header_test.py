@@ -126,6 +126,7 @@ class HeaderTest(unittest.TestCase):
         index = 0
         running = True
         dict_of_titles = {
+            "Data Science": "קורס Data Science | דאטה סיינס | הנדסת נתונים ומידע - Real Time College",
             "Data Analyst": "Data Analyst » Real Time College",
             "Machine Learning & Data Science": "קורס machine learning | הכשרה והשמה :Real Time Group",
             "Image Processing": "קורס עיבוד תמונה Image Processing | השתלבות בחזית העשייה החדשנית"}
@@ -493,7 +494,7 @@ class HeaderTest(unittest.TestCase):
         index = 0
         run = True
         dict_of_titles = {
-            " Docker": "קורס Docker - פלטפורמת תוכנה מובילה לניהול יישומים והרצת קוד בקונטיינרים",
+            " Docker Containers": "קורס Docker - פלטפורמת תוכנה מובילה לניהול יישומים והרצת קוד בקונטיינרים",
             " לינוקס | Linux Admin": "קורס לינוקס Linux Admin | ניהול מערכות הפעלה - Real Time College",
             " Kubernetes": "קורס Kubernetes | לימוד קוברנטיס מעשי » Real Time College",
             " פייתון |  Python": "קורס פייתון - Python | לימוד שפת פייתון מומלץ למתחילים / מתקדם",
@@ -935,8 +936,8 @@ class HeaderTest(unittest.TestCase):
         header = Header(self.driver)
         header.jobs().click()
         title = header.get_title()
-        actual_page_title = "Real Time College » Real Time Group's Training Center"
-        button_name = "Jobs"
+        actual_page_title = "Real Time Group - דרושים"
+        button_name = "Wanted"
         self.compare_title_pages(title, actual_page_title, button_name)
         self.string_message("@Outside 'Jobs' function---\n")
 

@@ -5,7 +5,8 @@
 import time
 import unittest
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException
+from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException, \
+    ElementNotInteractableException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
@@ -75,40 +76,40 @@ class MaslulPageTest(unittest.TestCase):
         for div in range(len(maslul_page.list_of_buttons_in_navigation())):
             if div == 0:
                 try:
-                    dict_of_nav_buttons_blocks["אודות המסלול"] = maslul_page.about_block()
+                    dict_of_nav_buttons_blocks["אודות"] = maslul_page.about_block()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'אודות המסלול' does not work------!\n")
+                    self.string_message("!------The button 'אודות' does not work------!\n")
                     continue
             if div == 1:
                 try:
-                    dict_of_nav_buttons_blocks["מבנה המסלול"] = maslul_page.structure_of_maslul_block()
+                    dict_of_nav_buttons_blocks["מבנה הקורס"] = maslul_page.structure_of_course_block()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'מבנה המסלול' does not work------!\n")
+                    self.string_message("!------The button 'מבנה הקורס' does not work------!\n")
                     continue
             if div == 2:
                 try:
                     dict_of_nav_buttons_blocks[
-                        "קהל יעד ודרישות קודם"] = maslul_page.target_audience_and_prior_requirements_block()
+                        "חוות דעת"] = maslul_page.opinions()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'קהל יעד ודרישות קודם' does not work------!\n")
+                    self.string_message("!------The button 'חוות דעת' does not work------!\n")
                     continue
             if div == 3:
                 try:
-                    dict_of_nav_buttons_blocks["ללמוד אצלנו"] = maslul_page.to_study_with_us_block()
+                    dict_of_nav_buttons_blocks["שאלות ותשובות"] = maslul_page.faq()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'ללמוד אצלנו' does not work------!\n")
+                    self.string_message("!------The button 'שאלות ותשובות' does not work------!\n")
                     continue
             if div == 4:
                 try:
-                    dict_of_nav_buttons_blocks["תעודת גמר"] = maslul_page.graduate_diploma_block()
+                    dict_of_nav_buttons_blocks["משרות"] = maslul_page.job_path()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'תעודת גמר' does not work------!\n")
+                    self.string_message("!------The button 'משרות' does not work------!\n")
                     continue
             if div == 5:
                 try:
-                    dict_of_nav_buttons_blocks["שאלות ותשובות"] = maslul_page.questions_and_answers_block()
+                    dict_of_nav_buttons_blocks["מאמרים"] = maslul_page.articles()
                 except NoSuchElementException:
-                    self.string_message("!------The button 'שאלות ותשובות' does not work------!\n")
+                    self.string_message("!------The button 'מאמרים' does not work------!\n")
                     continue
         return dict_of_nav_buttons_blocks
 
@@ -205,14 +206,17 @@ class MaslulPageTest(unittest.TestCase):
     def checks_if_faq_block_is_presented_and_clicks_on_every_question_in_it(self, actions, maslul_page):
         try:
             if maslul_page.maslul_faq_block().is_displayed():
-                if maslul_page.continue_reading().is_displayed():
-                    maslul_page.continue_reading().click()
+                if maslul_page.continue_reading():
+                    actions.move_to_element(maslul_page.continue_reading()).click().perform()
+                    # maslul_page.continue_reading().click()
                 self.string_message("---FAQ Block is presented---\n")
                 for question in maslul_page.list_of_div_blocks_in_faq():
                     self.string_message(f"Clicked on question -> {question.text}\n")
                     actions.move_to_element(question).click().perform()
         except NoSuchElementException:
             self.string_message("!------Element Not Found------!\n")
+        except ElementNotInteractableException:
+            self.string_message("!------Element not interactable------!\n")
 
     # --------------------------------------MASLUL'S METHODS---------------------------------------------
     def maslul_real_time(self):
@@ -433,6 +437,7 @@ class MaslulPageTest(unittest.TestCase):
         index = 0
         index_of_dict = 0
         dict_of_urls_of_syllabus = {
+            "Data Science (EN)": "https://rt-ed.co.il/wp-content/uploads/syllabus/Tracks/ML/Data_Science_Machine_Learning_Complete_Path.pdf",
             "Data Analyst (EN)": "currently no syllabus",
             "Machine Learning & Data Science (EN)": "https://rt-ed.co.il/wp-content/uploads/syllabus/Tracks/ML/Data_Science_Machine_Learning_Complete_Path.pdf",
             "Image Processing (EN)": "https://rt-ed.co.il/wp-content/uploads/syllabus/Tracks/ML/Computer_Vision_Complete_Track.pdf"}

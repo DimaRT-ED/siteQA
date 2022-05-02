@@ -45,7 +45,7 @@ class Header:
         self.maslul_linux_servers_by_xpath = "//*[@id='IT']"
         self.linux_servers_courses_by_xpath = "//*[@id='IT']/ul/li"
         # ----------------------- COURSES -----------------------------
-        self.courses_tab_by_xpath = "//*[@id=\"primar-menu\"]/li[6]"
+        self.courses_tab_by_xpath = "//*[@id='primar-menu']/li[@class='nav-item dropdown ml-2'][1]"
         self.real_time_course_by_xpath = "//*[@id=\"Real time\"]"
         self.real_time_sub_courses_by_xpath = "//*[@id=\"Real time\"]/ul/li"
         self.course_web_development_by_xpath = "//*[@id=\"Web Development\"]/a"
@@ -101,7 +101,7 @@ class Header:
         self.sub_course_cyber_security_fundamentals_by_txt = "Cyber Security Fundamentals"
         self.sub_course_networking_by_txt = "Networking"
         self.sub_course_forensics_investigation_and_incident_response_by_txt = "Forensics Investigation & Incident Response"
-        self.sub_course_docker_by_txt = "Docker"
+        self.sub_course_docker_by_txt = "Docker Containers"
         self.sub_course_linux_admin_by_txt = "לינוקס | Linux Admin"
         self.sub_course_kubernetes_by_txt = "Kubernetes"
         self.sub_course_zabbix_by_txt = "Zabbix"
