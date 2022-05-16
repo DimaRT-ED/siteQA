@@ -14,8 +14,8 @@ from POM.Pages.studentPortalLoginPage import StudentPortal
 from datetime import datetime
 
 # -------------------------------------
-correctUserName = 'dagula74@yahoo.com'
-correctPassword = '310870969'
+correctUserName = '#####@#####.com'     #  need leagle mail
+correctPassword = '#############'     # need leagle pas  
 studentPortalTitle = 'Students Portal RT-ED'
 popUp_close_XPATH = '//*[@id="lead-form-modal1"]/span'
 #
